@@ -16,8 +16,16 @@ function isPrime(nbr) {
 	return true;
 }
 
-console.log(isPrime(2));
-console.log(isPrime(3));
-console.log(isPrime(4));
-console.log(isPrime(5));
-console.log(isPrime(6));
+function arrCompare(arr1, arr2) {
+	if (arr1.length !== arr2.length) {
+		return false;
+	}
+
+	for (let i = 0; i < arr1.length; i++) {
+		if (arr1[i] !== arr2[i]) {
+			return false;
+		}
+	}
+
+	return true;
+}
