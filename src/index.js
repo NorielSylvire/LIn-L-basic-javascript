@@ -112,8 +112,8 @@ function searchByBrand(brand) {
 function averagePriceBrand(brand) {
 	const products = searchByBrand(brand);
 	let averagePrice = 0;
-	for (let i = 0; i < products.length; i++) {
-		averagePrice += products[i].price;
+	for (product of products) {
+		averagePrice += product.price;
 	}
 	console.log(averagePrice / products.length);
 }
