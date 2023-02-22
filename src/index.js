@@ -117,3 +117,10 @@ function averagePriceBrand(brand) {
 	}
 	console.log(averagePrice / products.length);
 }
+
+let words = ["hello", "zebra", "test", "ayyy", "whaddup?"];
+
+function sortWords() {
+	words.sort();
+  console.log(words);
+}
