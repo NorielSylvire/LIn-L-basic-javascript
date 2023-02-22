@@ -124,3 +124,19 @@ function sortWords() {
 	words.sort();
   console.log(words);
 }
+
+class Product {
+	_id;
+	_name;
+	_brand;
+	_price;
+
+	constructor(id, name, brand, price) {
+		this._id = id;
+		this._name = name;
+		this._brand = brand;
+		this._price = price;
+	}
+
+
+}
