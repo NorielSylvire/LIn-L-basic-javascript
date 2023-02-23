@@ -137,7 +137,7 @@ class Product {
 		this._name = name;
 		this._brand = brand;
 		this._price = price;
-		this._expiry = expiry;
+		this._expiry = new Date(expiry);
 	}
 }
 
