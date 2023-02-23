@@ -146,3 +146,72 @@ function totalPrice(products) {
 	const validProducts = products.filter((product) => product._expiry > today);
 	return validProducts.reduce((accumulator, product) => accumulator += product._price, 0);
 }
+
+const input = document.getElementById("inp");
+const add = document.getElementById("add");
+const sub = document.getElementById("sub");
+const mul = document.getElementById("mul");
+const div = document.getElementById("div");
+const calc = document.getElementById("calc");
+const res = document.getElementById("res");
+
+add.addEventListener("click", operate);
+sub.addEventListener("click", operate);
+mul.addEventListener("click", operate);
+div.addEventListener("click", operate);
+calc.addEventListener("click", operate);
+
+const operation = { value1 : null, value2 : null, operator : null};
+let tmpOperator = null;
+
+function showText(value) {
+	res.innerText = value;
+}
+
+function operate(event) {
+	const value = input.value === "" ? 0 : parseInt(input.value);
+	input.value = 0;
+
+	if (!operation.value1) {
+		operation.value1 = value;
+		operation.operator = event.target.innerText;
+		showText(`${operation.value1} ${operation.value2}`);
+		return;
+	}
+
+	if (!operation.operator) {
+		operation.operator = event.target.innerText;
+		showText(`${operation.value1} ${operation.value2}`);
+    return;
+	}
+
+	operation.value2 = value;
+
+	if (event.target.innerText !== "=") {
+		tmpOperator = event.target.innerText;
+	}
+	calculate();
+}
+
+function calculate() {
+	let total;
+	switch (operation.operator) {
+		case "+":
+			total = operation.value1 + operation.value2;
+			break;
+		case "-":
+			total = operation.value1 - operation.value2;
+			break;
+		case "*":
+    	total = operation.value1 * operation.value2;
+ 			break;
+   	case "/":
+   	  total = operation.value1 / operation.value2;
+ 		  break;
+	}
+	showText(`${total} ${tmpOperator ? tmpOperator : ''}`);
+	operation.value1 = total;
+	operation.value2 = null;
+	operation.operator = tmpOperator ? tmpOperator : null;
+	tmpOperator = null;
+}
