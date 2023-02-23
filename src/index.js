@@ -130,13 +130,19 @@ class Product {
 	_name;
 	_brand;
 	_price;
+	_expiry;
 
-	constructor(id, name, brand, price) {
+	constructor(id, name, brand, price, expiry) {
 		this._id = id;
 		this._name = name;
 		this._brand = brand;
 		this._price = price;
+		this._expiry = new Date(expiry);
 	}
+}
 
-
+function totalPrice(products) {
+	const today = new Date();
+	const validProducts = products.filter((product) => product._expiry > today);
+	return validProducts.reduce((accumulator, product) => accumulator += product._price, 0);
 }
