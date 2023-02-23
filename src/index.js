@@ -144,5 +144,5 @@ class Product {
 function totalPrice(products) {
 	const today = new Date();
 	const validProducts = products.filter((product) => product._expiry > today);
-	return validProducts.reduce((acumulator, product) => acumulator += product._price, 0);
+	return validProducts.reduce((accumulator, product) => accumulator += product._price, 0);
 }
