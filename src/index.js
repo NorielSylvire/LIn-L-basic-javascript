@@ -137,6 +137,8 @@ class Product {
 		this._brand = brand;
 		this._price = price;
 	}
+}
 
+function totalPrice(products) {
 
 }
